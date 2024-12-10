@@ -1,0 +1,27 @@
+{
+  "name": "nr-asmita",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Oldapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmi0211/NR-Asmita.git"
+  },
+  "author": "asmita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asmi0211/NR-Asmita/issues"
+  },
+  "homepage": "https://github.com/asmi0211/NR-Asmita#readme",
+  "devDependencies": {
+    "parcel": "^2.13.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
