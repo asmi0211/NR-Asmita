@@ -55,3 +55,18 @@ h1,h2,h3,h4,h5,h6,p{
 .search{
     padding: 10px;
 }
+/* bottom nav */
+.bottomnav{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 10px 20px 10px;
+}
+button.filter_btn {
+    background: transparent;
+    border: 2px solid orange;
+    padding: 6px 10px;
+    box-shadow: 0px 1px 4px 2px #ada5a5;
+    cursor: pointer;
+}
+/* end bottom nav */
