@@ -3,15 +3,7 @@ import {imgUrl} from "../utilis/constant"
 const RestaurantCard = (props) =>{
 
 const {resData} = props;
-  // Safely access resData?.card?.card?.info
-  const info = resData?.card?.card?.info;
-
-  // If 'info' is not available or missing any necessary fields, return null
-  if (!info || !info.name || !info.cuisines || !info.avgRating || !info.costForTwo || !info.cloudinaryImageId) {
-    return null; // Don't render anything if any required data is missing
-  }
-
-const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = info;
+const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = resData;
 
    return(
       <div className="res-card">

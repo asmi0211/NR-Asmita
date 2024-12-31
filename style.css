@@ -19,6 +19,21 @@ h1,h2,h3,h4,h5,h6,p{
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    align-items: center;
+}
+button {
+    background: #fff;
+    border: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.search button {
+    border: 1px solid #000;
+    padding: 7px 10px;
+    margin-left: 10px;
+}
+input{
+    padding: 6px;
 }
 .logo img{
     width: 100%;
@@ -70,3 +85,16 @@ button.filter_btn {
     cursor: pointer;
 }
 /* end bottom nav */
+/* shimmer */
+.shimmer {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.shimmer .res-card {
+    height: 200px;
+}
+/* shimmer */
