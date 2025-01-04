@@ -1,11 +1,14 @@
 import Header from "./Header";
 import Body from "./Body";
+import About from "./About";
+import Contact from "./Contact";
+import { Outlet } from "react-router";
 
 export const AppLayout= () =>{
     return(
         <div className="app">
             <Header />
-            <Body />
+            <Outlet/>
         </div>
     )
 }

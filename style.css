@@ -14,6 +14,11 @@ h1,h2,h3,h4,h5,h6,p{
     box-shadow: 0px 0px 5px 3px #b8b7b7;
     background-color: #ff5200;
 }
+.navbar ul a{
+    color: #fff;
+    text-decoration: none;
+}
+
 .navbar ul{
     list-style-type: none;
     display: flex;
@@ -98,3 +103,7 @@ button.filter_btn {
     height: 200px;
 }
 /* shimmer */
+.res-conatiner > a{
+    text-decoration: none;
+    color: #000;
+}

@@ -6,7 +6,7 @@ const {resData} = props;
 const {name, cuisines, avgRating, costForTwo, cloudinaryImageId} = resData;
 
    return(
-      <div className="res-card">
+   <div className="res-card">
       <h3>{name}</h3>
       <p>{cuisines.join(", ")}</p>
       <p>{avgRating}</p>
