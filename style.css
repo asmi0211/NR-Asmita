@@ -107,3 +107,8 @@ button.filter_btn {
     text-decoration: none;
     color: #000;
 }
+.user_card {
+    padding: 10px;
+    border: 1px solid #000;
+    width: fit-content;
+}
