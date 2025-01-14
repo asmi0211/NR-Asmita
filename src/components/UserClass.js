@@ -16,10 +16,10 @@ class UserClass extends React.Component{
 
     const json = await data.json();
 
-    console.log(json);
+    // console.log(json);
     
     this.timer = setInterval(()=>{
-        console.log("“welcome”")
+        // console.log("“welcome”")
     },1000)
     
 
@@ -28,11 +28,11 @@ class UserClass extends React.Component{
     })  
     }
     componentDidUpdate(prevProps, prevState){
-        console.log("compo updated");   
+        // console.log("compo updated");   
     }
     componentWillUnmount(){
         clearInterval(this.timer)
-        console.log("componentWillUnmount")
+        // console.log("componentWillUnmount")
     }
     render(){
         const {login,id, avatar_url} = this.state.userInfo;

@@ -2,8 +2,18 @@ import RestaurantCard from "./RestaurantCard"
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
-  
+import useOnlineStatus from "../utilis/useOnlineStatus";  
+import useOnlineStatus from "../utilis/useOnlineStatus";
+
 const Body =() =>{
+
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) return(
+        <h1>Looks like u r offline, check ur internet connect</h1>
+    )
+
     const [listOfresto, setListOfresto] = useState([]);
     const [searchTxt, setSearchtxt] = useState([]);
 
@@ -17,7 +27,7 @@ const Body =() =>{
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&collection=80440&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         
         const restaurantData = json?.data?.cards
             ?.filter((card) => card?.card?.card?.info) // Filters cards with valid `info` object
@@ -26,6 +36,8 @@ const Body =() =>{
         setListOfresto(restaurantData);
         setFilteredresto(restaurantData)
     }
+
+
 
    return listOfresto.length===0 ? 
    (<Shimmer />) 

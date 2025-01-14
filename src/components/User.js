@@ -5,7 +5,7 @@ const User = (props) => {
 
     useEffect(()=>{
         const timer = setInterval(()=>{
-            console.log("useeffect welcome")
+            // console.log("useeffect welcome")
         }, 1000)
 
         return()=>{
