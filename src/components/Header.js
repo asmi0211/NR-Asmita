@@ -10,13 +10,13 @@ const Header = () => {
         // console.log("UseEffect called");      
     })
     return(
-        <div className="header">
-            <div className="logo">
+        <div className="header bg-orange-500 flex flex-items items-center p-4 justify-between">
+            <div className="logo w-40">
                 <img src="https://res.cloudinary.com/dutdah0l9/image/upload/v1720058694/Swiggy_logo_bml6he.png" alt="logoimg" />
             </div>
            <div className="navbar">
-           <ul>
-                <li>Online Status:{onlineStatus ? "Online" : "offline"}</li>
+           <ul className="flex justify-between text-white gap-4">
+                <li>Online Status:{onlineStatus ? "On" : "Off"}</li>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About </Link></li>
                 <li><Link to="/contact">Contact </Link></li>
