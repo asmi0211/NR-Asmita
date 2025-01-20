@@ -1,11 +1,15 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utilis/useOnlineStatus";
+import UserContext from "../utilis/UserContext";
 const Header = () => {
 
     const [login, setLogin] = useState("Login");
     const onlineStatus = useOnlineStatus();
 
+    const {dummyData}= useContext(UserContext)
+    // console.log(dummyData);
+    
     useEffect(() => {
         // console.log("UseEffect called");      
     })
@@ -22,6 +26,8 @@ const Header = () => {
                 <li><Link to="/contact">Contact </Link></li>
                 <li><Link to="/about">About </Link></li>
                 <li><Link to="/grocery">Grocery </Link></li>
+                <li className="font-bold">{dummyData}</li>
+                
                 <button onClick={ () => 
                 setLogin(login==="Login" ? "Logout" : "Login")
                 }>

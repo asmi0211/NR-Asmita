@@ -1,9 +1,10 @@
-import RestaurantCard from "./RestaurantCard"
-import { useEffect, useState } from "react"
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard"
+import { useEffect, useState, useContext } from "react"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utilis/useOnlineStatus";  
 import useOnlineStatus from "../utilis/useOnlineStatus";
+import UserContext from "../utilis/UserContext";
 
 const Body =() =>{
 
@@ -17,6 +18,7 @@ const Body =() =>{
     const [listOfresto, setListOfresto] = useState([]);
     const [searchTxt, setSearchtxt] = useState([]);
 
+    
     const [filteredresto,setFilteredresto] = useState("")
     
     useEffect(() => {
@@ -24,10 +26,12 @@ const Body =() =>{
         
     }, [])
 
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
+
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&collection=80440&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
         const json = await data.json();
-        // console.log(json);
+        console.log(json);
         
         const restaurantData = json?.data?.cards
             ?.filter((card) => card?.card?.card?.info) // Filters cards with valid `info` object
@@ -37,6 +41,7 @@ const Body =() =>{
         setFilteredresto(restaurantData)
     }
 
+const {dummyData, setUserInfo} = useContext(UserContext);
 
 
    return listOfresto.length===0 ? 
@@ -70,11 +75,26 @@ const Body =() =>{
                 setFilteredresto(Filtered_listOfresto);
                 }}>Top Rated Restaurants</button>
             </div>
+            <div className="flex gap-1">
+                    <label>UserName</label>
+                    <input className="border-gray-500 border-solid border" 
+                   value={dummyData} 
+                   onChange={(e)=>setUserInfo(e.target.value)} />
+
+                </div>
             </div>
+
+                
 
             <div className="res-conatiner flex justify-center gap-6 flex-wrap w-full p-8">
             {filteredresto.map((x) => {
-                return <Link to={"/restarants/" + x.id}><RestaurantCard key={x.id} resData={x} /></Link>;
+                return <Link to={"/restarants/" + x.id}>
+                    {/* if restaurant is promoted then return it */}
+                    {/* {console.log(x.promoted)} */}
+                    
+                {x.promoted ? (<RestaurantCardPromoted key={x.id} resData={x} /> ): (<RestaurantCard key={x.id} resData={x} />)}
+                {/* <RestaurantCard key={x.id} resData={x} /> */}
+                </Link>;
             })}
 
          

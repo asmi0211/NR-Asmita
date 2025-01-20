@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css"
 import AppLayout from "./src/components/AppLayout"; 
@@ -9,9 +9,11 @@ import Error from "./src/components/Error";
 import Body from "./src/components/Body";
 import RestrauntMenu from "./src/components/RestrauntMenu";
 import Shimmer from "./src/components/Shimmer";
-
 const Grocery = lazy(() => import("./src/components/Grocery"))
 const About = lazy(() => import("./src/components/About"))
+
+
+
 const appRouter = createBrowserRouter([
     {
         path:"/",
