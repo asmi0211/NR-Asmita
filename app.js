@@ -9,6 +9,7 @@ import Error from "./src/components/Error";
 import Body from "./src/components/Body";
 import RestrauntMenu from "./src/components/RestrauntMenu";
 import Shimmer from "./src/components/Shimmer";
+import Cart from "./src/components/Cart";
 const Grocery = lazy(() => import("./src/components/Grocery"))
 const About = lazy(() => import("./src/components/About"))
 
@@ -38,6 +39,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/grocery",
                 element:<Suspense fallback={<Shimmer />}><Grocery /></Suspense>
+            },
+            {
+                path:"/cart",
+                element:<Cart />
             }
         ],
         errorElement: <Error/>

@@ -1,0 +1,9 @@
+import { configureStore } from "@reduxjs/toolkit"
+import cartReducer from "./cartSlice"
+const appStore = configureStore({
+    // will add slicers here
+    reducer:{
+        cart:cartReducer,
+    },
+});
+export default appStore;

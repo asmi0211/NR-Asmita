@@ -5,6 +5,8 @@ import Contact from "./Contact";
 import { Outlet } from "react-router";
 import UserContext from "../utilis/UserContext";
 import { useState, useEffect } from "react";
+import { Provider } from "react-redux";
+import appStore from "../utilis/appStore";
 
 export const AppLayout= () =>{
     const [userInfo, setUserInfo] = useState()
@@ -15,12 +17,14 @@ useEffect(()=>{
     setUserInfo(data.name)
 },[])
     return(
-        <UserContext.Provider value={{dummyData : userInfo, setUserInfo}}>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{dummyData : userInfo, setUserInfo}}>
             <div className="app">
             <Header />
             <Outlet/>
         </div>
         </UserContext.Provider>
+        </Provider>
     )
 }
 export default AppLayout;
